@@ -1,0 +1,14 @@
+<div class="toppings-selector" [formGroup]="parent">
+    <div
+      class="toppings-selector__item"
+      *ngFor="let topping of toppings"
+      [class.active]="isActive(topping)"
+      (click)="onSelect(topping)">
+      {{ topping }}
+    </div>
+    <div 
+      class="error"
+      *ngIf="invalid">
+      Select at least 1 topping
+    </div>
+</div>

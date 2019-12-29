@@ -1,0 +1,12 @@
+<div class="pizza-creator">
+    <div class="pizza-creator__title">
+        <h1>
+          <img src="assets/logo.svg">
+          Pizza Creator
+        </h1>
+    </div>
+    <div class="pizza-creator__panes">
+        <app-pizza-create [toppings]="toppings$ | async" (add)="addPizza($event)" [editPizzaInput]="editPizzaInput"></app-pizza-create>
+        <app-pizza-list [pizzas]="pizzas$ | async" (edit)="editPizza($event)"></app-pizza-list>
+    </div>
+</div>

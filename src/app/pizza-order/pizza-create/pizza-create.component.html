@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+
+    <app-toppings-selector
+      [parent]="form"
+      [toppings]="toppings"
+      [selected]="control.value"
+      (select)="selectTopping($event)">
+    </app-toppings-selector>
+
+    <app-pizza-name
+      [parent]="form">
+    </app-pizza-name>
+
+    <app-pizza-selected
+      [parent]="form"
+      [selected]="control.value"
+      (remove)="removeTopping($event)">
+    </app-pizza-selected>
+
+    <app-pizza-button
+      [parent]="form"
+      (add)="onSubmit()">
+      Add pizza
+    </app-pizza-button>
+</form>

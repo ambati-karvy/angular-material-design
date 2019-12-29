@@ -1,0 +1,36 @@
+<div class="container content" [formGroup]="form">
+    <div class="row">
+        <div class="col-md-12">
+          <div *ngIf="form.errors?.noPizzas && form.dirty" class="ValidationErrorLabel mg-bottom-15">
+            {{form.errors?.noPizzas.message}}
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-12">
+                <app-selected-pizza-viewer (addPizza)="onPizzaAdd()"
+                                           [selectedPizzaGroup]="selectedPizzaGroup">
+                </app-selected-pizza-viewer>
+              </div>
+            </div>
+      
+            <!-- <div class="row">
+              <div class="col-md-12">
+                <app-customer-details [group]="form.get('customerDetails')"></app-customer-details>
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-md-12">
+                <button class="pull-right" mat-raised-button color="primary" (click)="submit(form.value)">
+                  SUBMIT
+                </button>
+                <button mat-raised-button color (click)="reset()">
+                  RESET
+                </button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

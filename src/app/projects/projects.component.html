@@ -1,0 +1,32 @@
+<div class="container content" >
+    
+    <div class="row">
+        <div class="col-md-12">
+            <app-project-view (addProject)="onProjectAdd()"
+            [selectedPizzaGroup]="selectedPizzaGroup"></app-project-view>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <app-company></app-company>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-md-12">
+            <button class="pull-right" mat-raised-button color="primary" (click)="submit()">
+            SUBMIT
+            </button>
+            <button mat-raised-button color (click)="reset()">
+            RESET
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <app-add-project [group]="form"
+        (pizzaSelected)="onPizzaSelected($event)"
+        (addProject)="onProjectAdd()"
+        (deletePizza)="onPizzaDelete($event)"></app-add-project>
+    </div>    
+</div>
+                        

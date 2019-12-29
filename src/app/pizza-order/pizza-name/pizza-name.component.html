@@ -1,0 +1,11 @@
+<div class="pizza-name" [formGroup]="parent">
+    <input 
+      type="text" 
+      placeholder="Pizza name, e.g. Blazin' hot" 
+      formControlName="name">
+    <div 
+      class="error"
+      *ngIf="invalid">
+      Pizza name is required
+    </div>
+</div>

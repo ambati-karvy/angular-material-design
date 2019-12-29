@@ -1,0 +1,33 @@
+<div class="PizzaSelectorView" >
+    <div class="row" *ngIf="selectedPizzaGroup">
+        <div class="col-md-12" *ngIf="selectedPizzaGroup.errors?.toppingPizzaSize">
+            <div  class="ValidationErrorLabel mg-bottom-15">
+            {{selectedPizzaGroup.errors?.toppingPizzaSize?.message}}
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <app-project-size ></app-project-size>
+        </div>
+        <div class="col-md-12 mg-top-15">
+            <h5>Toppings</h5>
+            <div class="ToppingsSelector" >
+            <div class="ToppingsSelector__item" *ngFor="let topping of toppingsArray.controls" >
+                <mat-checkbox >
+                {{topping.get('name').value}}
+                </mat-checkbox>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!selectedPizzaGroup"  style="height: 100%">
+        <div class="PizzaSelectorView__no-selected">
+            <h4>
+            You have not selected any project yet.
+            </h4>
+            <button mat-button  color="primary" (click)="addProject.emit()">
+            <mat-icon>add_circle</mat-icon>
+            Add one
+            </button>
+        </div>
+    </div>
+</div>

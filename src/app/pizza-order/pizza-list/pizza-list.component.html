@@ -1,0 +1,7 @@
+<div class="pizza-list">
+    <h2>Store inventory</h2>
+    <div  *ngFor="let pizza of pizzas" (click)="editPizzza(pizza)">
+      <p>{{ pizza.name }}</p>
+      <span>{{ pizza.toppings | join }}</span>
+    </div>
+</div>

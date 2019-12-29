@@ -1,0 +1,24 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around stretch">
+    <mat-card fxFlex.gt-xs="40" class="mb15">
+        <mat-card-header>
+            <mat-card-title>Basic Inputs</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput  >
+                </mat-form-field>
+                <mat-form-field class="example-full-width" [floatLabel]="always">
+                        <input matInput placeholder="Last Name" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Mobile" value="">
+                </mat-form-field>
+            </form>    
+        </mat-card-content>
+    </mat-card>
+</div>
