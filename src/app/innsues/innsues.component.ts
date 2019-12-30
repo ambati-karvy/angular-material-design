@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { AddIssueComponent } from '../models/add-issue.component';
+import { ConformationDialogComponent } from '../conformation-dialog/conformation-dialog.component';
 
 
 const ELEMENT_DATE: Issue[] =[
@@ -34,6 +35,7 @@ export class InnsuesComponent implements OnInit {
   dataSource = new MatTableDataSource<Issue>(ELEMENT_DATE);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  issueData: Issue = {id: null, state: "", title: "", url: ""}
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
@@ -45,17 +47,29 @@ export class InnsuesComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  addNew(issue : Issue) {
+  addNew() {
     const dialogRef = this.dialog.open(AddIssueComponent,{
-      data: issue
+      data: this.issueData
     });
-
-
   }
 
   startEdit(issue : Issue) {
     const dialogRef = this.dialog.open(AddIssueComponent,{
       data: issue
+    });
+  }
+
+  deleteItem(issue : Issue) {
+    const dialogRef = this.dialog.open(ConformationDialogComponent,{
+      width: '350px',
+      data: "Do you confirm the deletion of this data?"
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        console.log('Yes clicked');
+        // DO SOMETHING
+      }
     });
   }
 

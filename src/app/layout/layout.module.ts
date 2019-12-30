@@ -29,6 +29,7 @@ import { RestComponent } from '../rest/rest.component';
 import { PizzaAppComponent } from '../pizza-app/pizza-app.component';
 import { SelectedPizzaViewerComponent } from '../pizza-app/selected-pizza-viewer/selected-pizza-viewer.component';
 import { AppPizzaSizePickerComponent } from '../pizza-app/app-pizza-size-picker/app-pizza-size-picker.component';
+import { ConformationDialogComponent } from '../conformation-dialog/conformation-dialog.component';
 
 @NgModule({
   declarations: [ DashboardComponent,
@@ -56,7 +57,8 @@ import { AppPizzaSizePickerComponent } from '../pizza-app/app-pizza-size-picker/
     RestComponent,
     PizzaAppComponent,
     SelectedPizzaViewerComponent,
-    AppPizzaSizePickerComponent],
+    AppPizzaSizePickerComponent,
+    ConformationDialogComponent],
   imports: [
     CommonModule,
     LayOutRoutingModule,
@@ -64,6 +66,6 @@ import { AppPizzaSizePickerComponent } from '../pizza-app/app-pizza-size-picker/
     FormsModule,
     ReactiveFormsModule
   ],
-  entryComponents: [AddIssueComponent]
+  entryComponents: [AddIssueComponent,ConformationDialogComponent]
 })
 export class LayoutModule { }

@@ -11,9 +11,6 @@ import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
-
-
-
 const routes: Routes = [
   {path: '',loadChildren:'./layout/layout.module#LayoutModule'},
   {path: 'login',component: LoginComponent}
