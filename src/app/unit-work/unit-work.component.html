@@ -1,32 +1,32 @@
 <div class="basic-container">
     <mat-card>
-        <form [formGroup]="exampleForm"  novalidate (ngSubmit)="save(exampleForm.value, exampleForm.valid,$event)" >
+        <form [formGroup]="exampleForm"  novalidate (ngSubmit)="save()" >
             <mat-card-title>Unit Work</mat-card-title>
             <mat-card-content>
                 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3.5%" fxLayoutAlign="left" >
                     <mat-form-field class="example-full-width" fxFlex="75%"> 
-                        <input matInput placeholder="Company name" >
+                        <input matInput placeholder="Company name" formControlName="companyName" >
                     </mat-form-field>
                     <mat-form-field class="example-full-width" > 
-                        <input matInput placeholder="Country" >
+                        <input matInput placeholder="Country" formControlName="countryName">
                     </mat-form-field>
                 </div>
                 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3.5%" fxLayoutAlign="center" layout-margin>
           
                     <!-- Street input field -->
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Street" fxFlex="75%" >
+                      <input matInput placeholder="Street" fxFlex="75%" formControlName="countryName">
                     </mat-form-field>
           
                     <!-- City input field -->
                     <mat-form-field class="example-full-width" > 
-                      <input matInput placeholder="City" >
+                      <input matInput placeholder="City" formControlName="city">
                       <mat-hint align="end">City name loaded from ipapi.co/json/</mat-hint>
                     </mat-form-field>
           
                     <!-- Zip code input field -->
                     <mat-form-field class="example-full-width" fxFlex="20%"> 
-                      <input matInput placeholder="Zip" >
+                      <input matInput placeholder="Zip" formControlName="zipCode">
                       <mat-hint align="end">Zip loaded from ipapi.co/json/</mat-hint>
                     </mat-form-field>
                 </div>
@@ -87,6 +87,13 @@
                     </mat-card-actions>
                 </mat-card>
             </mat-card-content>
+            <button type="submit" class="pull-right">
+            SUBMIT
+            </button>
+            <button type="button" mat-raised-button (click)="edit()">
+                <mat-icon>edit</mat-icon>
+                edit
+            </button>
         </form>
     </mat-card>
 </div>

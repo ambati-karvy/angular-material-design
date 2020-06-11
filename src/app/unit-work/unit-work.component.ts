@@ -14,9 +14,9 @@ export class UnitWorkComponent implements OnInit {
   ngOnInit() {
     this.exampleForm = this.formBuilder.group({
       companyName:['',[Validators.required]] ,
-      countryName:[''],
-      city:[''],
-      zipCode:[''],
+      countryName:['',[Validators.required]],
+      city:['',[Validators.required]],
+      zipCode:['',[Validators.required]],
       street:[''],
       units:this.formBuilder.array([
         this.getUnit()
@@ -52,6 +52,42 @@ export class UnitWorkComponent implements OnInit {
     }
     control.clearValidators();
     control.push(this.getUnit());
+  }
+
+
+  save() {
+    alert(this.exampleForm.valid)
+    console.log("complete data");
+    console.log(this.exampleForm.value);
+  }
+
+
+  edit() {
+
+    let data = {
+      "companyName":"rahgu",
+      "countryName":"ramana",
+      "city":"hyderabad",
+      "zipCode":"78265872",
+      "units":[{"unitName":"karvy","qty":"3","unitPrice":"300","unitTotalPrice":"70000"},
+              {"unitName":"karvy","qty":"3","unitPrice":"300","unitTotalPrice":"70000"},
+              {"unitName":"karvy","qty":"3","unitPrice":"300","unitTotalPrice":"70000"}]
+    }
+
+    this.exampleForm = this.formBuilder.group({
+      companyName:this.formBuilder.control(data.companyName) ,
+      countryName:this.formBuilder.control(data.countryName),
+      city:this.formBuilder.control(data.city),
+      zipCode:this.formBuilder.control(data.zipCode),
+      street:this.formBuilder.control(''),
+      units:this.formBuilder.array(data.units.map(unti => this.formBuilder.group({
+        unitName:this.formBuilder.control(unti.unitName),
+        qty:this.formBuilder.control(unti.qty),
+        unitPrice:this.formBuilder.control(unti.unitPrice),
+        unitTotalPrice:this.formBuilder.control(unti.unitTotalPrice)
+      })))
+    })
+
   }
 
 }
