@@ -1,0 +1,6 @@
+Observable.interval(5000)
+    .switchMap(() => http.get('http://jsonplaceholder.typicode.com/users/')).map((data) => data.json())
+        .subscribe((data) => {
+          this.doctors=data; 
+           console.log(data);// see console you get output every 5 sec
+        });
